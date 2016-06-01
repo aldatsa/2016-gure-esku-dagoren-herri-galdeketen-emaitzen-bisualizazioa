@@ -79,7 +79,7 @@
             altuera: 865,
             proiekzioa: {
                 erdia: {
-                    lat: -1.22,
+                    lat: -1.52,
                     lng: 43.40
                 },
                 eskala: 10000
@@ -90,8 +90,8 @@
             altuera: 500,
             proiekzioa: {
                 erdia: {
-                    lat: -1.22,
-                    lng: 43.25
+                    lat: -1.52,
+                    lng: 43.40
                 },
                 eskala: 10000
             }
