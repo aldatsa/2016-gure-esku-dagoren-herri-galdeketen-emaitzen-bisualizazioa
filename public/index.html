@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>2016 - Gure Esku Dagoren herri galdeketen emaitzak </title>
+		<link href="css/estiloa.css" rel="stylesheet">
+		<link href="css/d3-tip.css" rel="stylesheet">
+		<link href="css/c3/c3.min.css" rel="stylesheet">
+	</head>
+
+    <body>
+		<div id="kontainerra">
+			<div class="izenburua">Hirigune Elkargo bakarraren bozketen emaitzak (HELEP)</div>
+			<div class="azalpena">Onartzeko udalen erdiek alde bozkatu behar dute eta aldeko udalek biztanleriaren erdia ordezkatu behar dute.</div>
+			<table class="legenda">
+				<tr>
+					<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+					<td>Alde</td>
+				</tr>
+				<tr>
+                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+					<td>Aurka</td>
+				</tr>
+				<tr>
+                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+					<td>Erabakitzeke</td>
+				</tr>
+				<tr>
+					<td class="kolorea ez-dago-bozketara-deitua">
+						<img src="img/ez-dago-bozketara-deitua.png">
+					</td>
+					<td>Ez dago bozketara deitua *</td>
+				</tr>
+			</table>
+            <div id="kredituak">
+				<a target="_blank" href="http://www.argia.eus"><img id="mapa-argia-logoa" src="img/argia-gardena.png"></a>
+				<a target="_blank" href="http://www.iametza.eus"><img id="mapa-iametza-logoa" src="img/iametza.png"></a>
+				<div>
+				  <strong>Asier Iturralde Sarasola</strong>&nbsp;<a target="_blank" href="http://www.twitter.com/aldatsa">@aldatsa</a>
+				</div>
+				<div>
+					Datu geografikoak: <a target="_blank" href="http://www.euskalgeo.net/">Euskalgeo</a>n oinarrituta
+				</div>
+				<div>
+					Biztanleria datuak: <a target="_blank" href="http://www.datuak.net/">datuak.net</a> (2016)
+				</div>
+				<div><a target="_blank" href="">Iturburu kodea eta datuak (GPLv3/CC-BY-SA)</a></div>
+			</div>
+            <div id="mapa">
+                <svg>
+					<defs>
+				        <pattern id="pattern-stripe"
+				          	width="4" height="4"
+				          	patternUnits="userSpaceOnUse"
+				          	patternTransform="rotate(315)">
+				          	<rect width="1" height="4" transform="translate(0,0)" fill="#333"></rect>
+				        </pattern>
+				        <mask id="mask-stripe">
+				          	<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
+				        </mask>
+					</defs>
+				</svg>
+            </div>
+			<div id="sinbolo-proportzionalen-mapa">
+                <svg>
+					<defs>
+				        <pattern id="pattern-stripe"
+				          	width="4" height="4"
+				          	patternUnits="userSpaceOnUse"
+				          	patternTransform="rotate(315)">
+				          	<rect width="1" height="4" transform="translate(0,0)" fill="#333"></rect>
+				        </pattern>
+				        <mask id="mask-stripe">
+				          	<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
+				        </mask>
+					</defs>
+				</svg>
+            </div>
+			<table class="sinbolo-proportzionalen-maparen-legenda">
+				<tr>
+					<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+					<td>Alde</td>
+				</tr>
+				<tr>
+                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+					<td>Aurka</td>
+				</tr>
+				<tr>
+                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+					<td>Erabakitzeke</td>
+				</tr>
+				<tr>
+					<td class="kolorea ez-dago-bozketara-deitua">
+						<img src="img/ez-dago-bozketara-deitua.png">
+					</td>
+					<td>Ez dago bozketara deitua *</td>
+				</tr>
+			</table>
+			<div id="zirkuluen-legenda">
+				<img src="img/zirkuluak.png">
+				<div id="zirkuluen-oharra">Zirkuluen diametroak udalerrien biztanleriarekiko proportzionalak dira</div>
+			</div>
+			<div id="grafikoak">
+				<div id="biztanleria-grafikoa"></div>
+				<div id="biztanleria-grafikoa-etiketa">Biztanleak</div>
+				<div id="herriak-grafikoa"></div>
+				<div id="herriak-grafikoa-etiketa">Herriak</div>
+			</div>
+			<div id="oharrak">* Iturri askoren arabera Eskiula eta Jestaze historikoki Zuberoako herriak dira baina ez dira bozketara deituak izan.</div>
+        </div>
+        <script type="text/javascript" src="js/d3/d3.min.js"></script>
+		<script type="text/javascript" src="js/topojson/topojson.js"></script>
+		<!--d3-tip-i aldaketa bat egin diot eskalatzean funtziona dezan. Nahiko txukun dabil baina eskalatu ondoren kokapen bertikala ez da guztiz zehatza.-->
+		<script type="text/javascript" src="js/d3-tip-scale.js"></script>
+		<script type="text/javascript" src="js/c3/c3.min.js"></script>
+        <script type="text/javascript" src="js/gure-esku-dago.js"></script>
+		<script type="text/javascript" src="js/analytics.js"></script>
+    </body>
+</html>

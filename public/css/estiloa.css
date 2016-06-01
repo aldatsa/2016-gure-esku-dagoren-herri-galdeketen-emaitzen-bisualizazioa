@@ -1,0 +1,168 @@
+a {
+    color: #e50000;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial,Helvetica,sans-serif !important;
+}
+
+#kontainerra {
+    margin: 0 auto 0 auto;
+    width: 680px;
+    position: relative;
+    height: 1440px;
+    font-size: 16px;
+}
+
+.izenburua {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.azalpena {
+    width: 80%;
+    text-align: center;
+    margin: 15px auto 0px;
+    color: #565656;
+}
+
+#grafikoak {
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
+
+#grafikoak #biztanleria-grafikoa, #grafikoak #herriak-grafikoa {
+    display: inline-block;
+    width: 33%;
+}
+
+#mapa {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.unitatea {
+
+}
+
+.eskualde-mugak {
+    fill: none;
+    stroke: #777;
+    stroke-width: 0.5px;
+    stroke-linejoin: round;
+}
+
+.kanpo-mugak {
+    fill: #fff;
+    stroke: #777;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.4));
+}
+
+.zirkulua {
+    fill-opacity: .8;
+    stroke: #fff;
+    stroke-width: .25px;
+}
+
+.zirkulua :hover {
+  stroke: #000;
+}
+
+#zirkuluen-legenda {
+    position: absolute;
+    top: 1215px;
+    left: 25px;
+}
+
+#zirkuluen-legenda img {
+    width: 175px;
+}
+
+#zirkuluen-oharra {
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    margin-left: 20px;
+    width: 160px;
+}
+
+.sinbolo-proportzionalen-maparen-legenda {
+    position: absolute;
+    top: 970px;
+    left: 480px;
+}
+
+.legenda {
+    left: 480px;
+    position: absolute;
+    top: 385px;
+}
+
+.legenda, .sinbolo-proportzionalen-maparen-legenda {
+    font-size: 18px;
+    width: 216px;
+}
+
+.legenda .kolorea, .sinbolo-proportzionalen-maparen-legenda .kolorea {
+    display: inline-block;
+    height: 15px;
+    margin: 0px 5px 0px 15px;
+    width: 15px;
+}
+
+.legenda .kolorea.erabakitzeke, .sinbolo-proportzionalen-maparen-legenda .kolorea.erabakitzeke {
+    border: 1px solid #ccc;
+}
+
+.legenda .kolorea.ez-dago-bozketara-deitua, .sinbolo-proportzionalen-maparen-legenda .kolorea.ez-dago-bozketara-deitua {
+    border: 1px solid #ccc;
+    height: 15px;
+    width: 15px;
+    vertical-align: initial;
+}
+
+.legenda .kolorea.ez-dago-bozketara-deitua img, .sinbolo-proportzionalen-maparen-legenda .kolorea.ez-dago-bozketara-deitua img {
+    vertical-align: super;
+}
+
+#kredituak {
+    color: #333;
+    font-size: 11px;
+    left: 3px;
+    position: absolute;
+    top: 845px;
+    width: 250px;
+    text-align: center;
+}
+
+#kredituak #mapa-argia-logoa {
+	width: 100px;
+}
+
+#kredituak #mapa-iametza-logoa {
+	width: 100px;
+    margin-left: 15px;
+}
+#oharrak {
+    position: absolute;
+    top: 880px;
+    left: 360px;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+}
+#biztanleria-grafikoa-etiketa {
+    position: absolute;
+    left: 190px;
+    top: 280px;
+}
+#herriak-grafikoa-etiketa {
+    position: absolute;
+    left: 430px;
+    top: 280px;
+}

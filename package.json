@@ -1,0 +1,26 @@
+{
+  "name": "2016-gure-esku-dago-herri-galdeketen-emaitzen-bisualizazioa",
+  "version": "0.0.0",
+  "description": "ARGIA.eus - Gure Esku Dagok antolatutako herri galdeketen emaitzen bisualizazioa",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "~3.9.1",
+    "gulp-bower": "~0.0.13"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "browser-sync": "~2.11.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Asier Iturralde Sarasola",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": ""
+  }
+}

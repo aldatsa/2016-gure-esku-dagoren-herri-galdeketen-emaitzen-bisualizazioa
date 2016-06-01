@@ -1,0 +1,97 @@
+.d3-tip:before {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 24px;
+    width: 100%;
+    line-height: 1;
+    color: #ccc;
+    position: absolute;
+    pointer-events: none;
+    border-width: 20px;
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  pointer-events: none;
+  width: 250px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 24px;
+  width: 100%;
+  line-height: 1;
+  color: #fff;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Northward tooltips */
+.d3-tip.n:before {
+  content: "\25BC";
+  margin: -4px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -6px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
+/* Eastward tooltips */
+.d3-tip.e:before {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -20px;
+}
+.d3-tip.e:after {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -18px;
+}
+/* Southward tooltips */
+.d3-tip.s:before {
+  content: "\25B2";
+  margin: 0 0 8px 0;
+  top: -24px;
+  left: 0;
+  text-align: center;
+}
+.d3-tip.s:after {
+  content: "\25B2";
+  margin: 0 0 6px 0;
+  top: -22px;
+  left: 0;
+  text-align: center;
+}
+
+/* Westward tooltips */
+.d3-tip.w:before {
+  content: "\25B6";
+  margin: -4px 0 0 1px;
+  top: 50%;
+  left: 100%;
+}
+.d3-tip.w:after {
+  content: "\25B6";
+  margin: -4px 0 0 -1px;
+  top: 50%;
+  left: 100%;
+}
+.d3-tip .mankomunitatea {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
