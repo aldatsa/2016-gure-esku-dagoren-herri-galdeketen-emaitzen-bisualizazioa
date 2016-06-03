@@ -100,7 +100,8 @@
         koloreak: {
             bai: "#a6ce39",
             ez: "#c4161c",
-            lehenetsia: "#ffffff"
+            lehenetsia: "#ffffff",
+            galdeketa_iragarria: "#179A92"
         }
     };
 
@@ -155,7 +156,7 @@
         guztira: 0
     };
 
-    // HELEP emaitzen datuak irakurri dagokion CSVtik.
+    // Emaitzen datuak irakurri dagokion CSVtik.
     d3.csv(aukerak.emaitzakCSV, function(error, emaitzak) {
         console.log(emaitzak);
         if (error) {
@@ -209,36 +210,45 @@
                         }
 
                         biztanleak.guztira = biztanleak.guztira + biztanleria2014;
-
-                        herriak.guztira++;
-
                     }
+
+                    herriak.guztira++;
+
                 });
             });
 
             console.log(biztanleak.guztira);
             console.log(herriak.guztira);
+
             // Udal guztiak.
             svg.selectAll(".unitatea")
                 .data(topojson.feature(geodatuak, geodatuak.objects[aukerak.json_izena]).features)
                 .enter().append("path")
                 .attr("fill", function(d) {
 
+                    console.log(d.properties.datuak);
+
                     // Udalerriko emaitzen arabera koloreztatuko dugu.
-                    if (d.properties.datuak && d.properties.datuak.emaitza) {
+                    if (d.properties.datuak) {
 
-                        // Emaitza aldekoa bada...
-                        if (d.properties.datuak.emaitza === "bai") {
+                        if (d.properties.datuak.emaitza) {
 
-                            return aukerak.koloreak.bai;
+                            // Emaitza aldekoa bada...
+                            if (d.properties.datuak.emaitza === "bai") {
 
-                        // Kontrakoa bada berriz...
-                        } else {
+                                return aukerak.koloreak.bai;
 
-                            return aukerak.koloreak.ez;
+                            // Kontrakoa bada berriz...
+                            } else {
+
+                                return aukerak.koloreak.ez;
+
+                            }
+                        } else if (d.properties.datuak.data) {
+
+                            return aukerak.koloreak.galdeketa_iragarria;
 
                         }
-
                     }
 
                     // Emaitzarik ez badago...
