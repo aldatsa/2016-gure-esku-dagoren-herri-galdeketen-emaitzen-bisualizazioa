@@ -58,8 +58,6 @@
                 katea = katea + "<div>Emaitza: ALDE</div>";
             } else if (d.properties.datuak.emaitza === "ez") {
                 katea = katea + "<div>Emaitza: KONTRA</div>";
-            } else if (d.properties.datuak.emaitza === "ez-dago-deitua") {
-                katea = katea + "<div>EZ DAGO BOZKETARA DEITUA</div>";
             } else {
                 katea = katea + "<div>Emaitza: ERABAKITZEKE</div>";
             }
@@ -193,30 +191,27 @@
                         // Udalerri honetako datuak mapako bere elementuarekin lotu.
                         e.properties.datuak = d;
 
-                        if (e.properties.datuak.emaitza !== "ez-dago-deitua") {
+                        if (d.emaitza === "bai") {
 
-                            if (d.emaitza === "bai") {
+                            herriak.alde++;
+                            biztanleak.alde = biztanleak.alde + biztanleria2014;
 
-                                herriak.alde++;
-                                biztanleak.alde = biztanleak.alde + biztanleria2014;
+                        } else if (d.emaitza === "ez") {
 
-                            } else if (d.emaitza === "ez") {
+                            herriak.aurka++;
+                            biztanleak.aurka = biztanleak.aurka + biztanleria2014;
 
-                                herriak.aurka++;
-                                biztanleak.aurka = biztanleak.aurka + biztanleria2014;
+                        } else {
 
-                            } else {
-
-                                herriak.erabakitzeke++;
-                                biztanleak.erabakitzeke = biztanleak.erabakitzeke + biztanleria2014;
-
-                            }
-
-                            biztanleak.guztira = biztanleak.guztira + biztanleria2014;
-
-                            herriak.guztira++;
+                            herriak.erabakitzeke++;
+                            biztanleak.erabakitzeke = biztanleak.erabakitzeke + biztanleria2014;
 
                         }
+
+                        biztanleak.guztira = biztanleak.guztira + biztanleria2014;
+
+                        herriak.guztira++;
+
                     }
                 });
             });
@@ -232,12 +227,8 @@
                     // Udalerriko emaitzen arabera koloreztatuko dugu.
                     if (d.properties.datuak && d.properties.datuak.emaitza) {
 
-                        if (d.properties.datuak.emaitza === "ez-dago-deitua")  {
-
-                            return "url('#pattern-stripe')";
-
-                        // Emaitza HELEParen aldekoa bada...
-                        } else if (d.properties.datuak.emaitza === "bai") {
+                        // Emaitza aldekoa bada...
+                        if (d.properties.datuak.emaitza === "bai") {
 
                             return aukerak.koloreak.bai;
 
@@ -288,17 +279,6 @@
                 .data(topojson.feature(geodatuak, geodatuak.objects[aukerak.json_izena]).features)
                 .enter().append("path")
                 .attr("fill", function(d) {
-
-                    // Udalerriko emaitzen arabera koloreztatuko dugu.
-                    if (d.properties.datuak && d.properties.datuak.emaitza) {
-
-                        if (d.properties.datuak.emaitza === "ez-dago-deitua")  {
-
-                            return "url('#pattern-stripe')";
-
-                        }
-
-                    }
 
                     // Emaitzarik ez badago...
                     return aukerak.koloreak.lehenetsia;
@@ -356,7 +336,7 @@
                 .attr("r", function(d) {
 
                     // Bozkatu duten udalerriek bakarrik izango dute zirkulua.
-                    if (d.properties.datuak && d.properties.datuak.emaitza && d.properties.datuak.emaitza !== "ez-dago-deitua") {
+                    if (d.properties.datuak && d.properties.datuak.emaitza) {
 
                         return radius(parseInt(d.properties.datuak.biztanleria2014.replace(/\./g, ''), 10));
 

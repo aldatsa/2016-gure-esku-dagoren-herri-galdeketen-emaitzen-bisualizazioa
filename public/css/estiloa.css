@@ -120,17 +120,6 @@ body {
     border: 1px solid #ccc;
 }
 
-.legenda .kolorea.ez-dago-bozketara-deitua, .sinbolo-proportzionalen-maparen-legenda .kolorea.ez-dago-bozketara-deitua {
-    border: 1px solid #ccc;
-    height: 15px;
-    width: 15px;
-    vertical-align: initial;
-}
-
-.legenda .kolorea.ez-dago-bozketara-deitua img, .sinbolo-proportzionalen-maparen-legenda .kolorea.ez-dago-bozketara-deitua img {
-    vertical-align: super;
-}
-
 #kredituak {
     color: #333;
     font-size: 11px;
