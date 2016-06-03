@@ -74,24 +74,24 @@
     var aukerak = {
         kolore_mapa: {
             zabalera: 680,
-            altuera: 865,
+            altuera: 980,
             proiekzioa: {
                 erdia: {
-                    lat: -1.52,
+                    lat: -2.05,
                     lng: 43.40
                 },
-                eskala: 10000
+                eskala: 13500
             }
         },
         sinbolo_proportzionalen_mapa: {
             zabalera: 680,
-            altuera: 500,
+            altuera: 550,
             proiekzioa: {
                 erdia: {
-                    lat: -1.52,
-                    lng: 43.40
+                    lat: -2.05,
+                    lng: 42.75
                 },
-                eskala: 10000
+                eskala: 13500
             }
         },
         emaitzakCSV: "csv/udalerriak.csv",

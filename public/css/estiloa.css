@@ -11,8 +11,9 @@ body {
     margin: 0 auto 0 auto;
     width: 680px;
     position: relative;
-    height: 1440px;
+    height: 1585px;
     font-size: 16px;
+    border: 1px solid black;
 }
 
 .izenburua {
@@ -77,7 +78,7 @@ body {
 
 #zirkuluen-legenda {
     position: absolute;
-    top: 1215px;
+    top: 1425px;
     left: 25px;
 }
 
@@ -94,14 +95,14 @@ body {
 
 .sinbolo-proportzionalen-maparen-legenda {
     position: absolute;
-    top: 970px;
-    left: 480px;
+    top: 1440px;
+    left: 510px;
 }
 
 .legenda {
-    left: 480px;
+    left: 510px;
     position: absolute;
-    top: 385px;
+    top: 880px;
 }
 
 .legenda, .sinbolo-proportzionalen-maparen-legenda {
@@ -125,7 +126,7 @@ body {
     font-size: 11px;
     left: 3px;
     position: absolute;
-    top: 845px;
+    top: 900px;
     width: 250px;
     text-align: center;
 }
