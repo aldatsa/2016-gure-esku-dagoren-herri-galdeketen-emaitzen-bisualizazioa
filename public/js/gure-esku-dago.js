@@ -101,7 +101,7 @@
             bai: "#a6ce39",
             ez: "#c4161c",
             lehenetsia: "#ffffff",
-            galdeketa_iragarria: "#179A92"
+            galdeketa_iragarria: "#0DA0AC"
         }
     };
 
@@ -345,8 +345,8 @@
                 })
                 .attr("r", function(d) {
 
-                    // Bozkatu duten udalerriek bakarrik izango dute zirkulua.
-                    if (d.properties.datuak && d.properties.datuak.emaitza) {
+                    // Bozkatu duten edo galdeketa iragarria duten udalerriek bakarrik izango dute zirkulua.
+                    if (d.properties.datuak && (d.properties.datuak.emaitza || d.properties.datuak.data)) {
 
                         return radius(parseInt(d.properties.datuak.biztanleria2014.replace(/\./g, ''), 10));
 
@@ -356,20 +356,26 @@
 
                     if (d.properties.datuak) {
 
-                        // Emaitza HELEParen aldekoa bada...
-                        if (d.properties.datuak.emaitza === "bai") {
+                        if (d.properties.datuak.emaitza) {
 
-                            return aukerak.koloreak.bai;
+                            // Emaitza aldekoa bada...
+                            if (d.properties.datuak.emaitza === "bai") {
 
-                        // Kontrakoa bada berriz...
-                        } else {
+                                return aukerak.koloreak.bai;
 
-                            return aukerak.koloreak.ez;
+                            // Kontrakoa bada berriz...
+                            } else {
+
+                                return aukerak.koloreak.ez;
+
+                            }
+                        } else if (d.properties.datuak.data) {
+                            console.log(aukerak.koloreak.galdeketa_iragarria);
+                            return aukerak.koloreak.galdeketa_iragarria;
 
                         }
-
                     }
-
+                    
                     // Daturik ez badago...
                     return "#ffffff";
 

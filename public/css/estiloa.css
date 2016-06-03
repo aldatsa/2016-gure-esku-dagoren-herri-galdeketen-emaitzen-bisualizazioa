@@ -95,19 +95,19 @@ body {
 
 .sinbolo-proportzionalen-maparen-legenda {
     position: absolute;
-    top: 1440px;
-    left: 510px;
+    top: 1420px;
+    left: 520px;
 }
 
 .legenda {
-    left: 510px;
+    left: 520px;
     position: absolute;
-    top: 880px;
+    top: 865px;
 }
 
 .legenda, .sinbolo-proportzionalen-maparen-legenda {
     font-size: 18px;
-    width: 216px;
+    width: 175px;
 }
 
 .legenda .kolorea, .sinbolo-proportzionalen-maparen-legenda .kolorea {
