@@ -35,17 +35,24 @@
         console.log(hautesleak);
         console.log(bai);
         console.log(ez);
+
+        var max = bai;
+
+        if (ez > bai) {
+            max = ez;
+        }
+
         var grafikoa = c3.generate({
             bindto: id,
             size: {
                 height: 150,
-                width: 100
+                width: 224
             },
             legend: {
                 hide: true
             },
             transition: {
-                duration: 1000
+                duration: 200
             },
             data: {
                 columns: [
@@ -73,18 +80,8 @@
                     show: false
                 },
                 y: {
-                    max: hautesleak,
-                    show: true
-                }
-            },
-            grid: {
-                y: {
-                    lines: [{
-                        value: Math.round(hautesleak / 2),
-                        text: "Erdiak: " + Math.round(hautesleak / 2),
-                        axis: "y",
-                        position: "end"
-                    }]
+                    max: max,
+                    show: false
                 }
             },
             tooltip: {
