@@ -128,40 +128,56 @@
 
             var guztira = parseInt(d.properties.datuak.bai, 10) + parseInt(d.properties.datuak.ez, 10) + parseInt(d.properties.datuak.zuria, 10) + parseInt(d.properties.datuak.baliogabea, 10);
 
-            var katea = "<div class='herria'><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
-                        "<div class='data'>" + d.properties.datuak.data + "</div>" +
-                        "<div id='tip-grafikoa'></div>" +
-                        "<div class='galdera'><strong>" + d.properties.datuak.galdera + "</strong></div>" +
-                        "<div class='partehartzea'><strong>Partehartzea:</strong> %" + d.properties.datuak.partehartzea + "</div>" +
-                        "<table class='emaitzak'>" +
-                            "<thead>" +
+            var katea = "";
+
+            if (d.properties.datuak.partehartzea) {
+
+                katea = "<div class='herria'><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
+                            "<div class='data'>" + d.properties.datuak.data + "</div>" +
+                            "<div id='tip-grafikoa'></div>" +
+                            "<div class='galdera'><strong>" + d.properties.datuak.galdera + "</strong></div>" +
+                            "<div class='partehartzea'><strong>Partehartzea:</strong> %" + d.properties.datuak.partehartzea + "</div>" +
+                            "<table class='emaitzak'>" +
+                                "<thead>" +
+                                    "<tr>" +
+                                        "<th></th>" +
+                                        "<th>Botoak</th>" +
+                                        "<th>Ehunekoa</th>" +
+                                    "</tr>" +
+                                "</thead>" +
                                 "<tr>" +
-                                    "<th></th>" +
-                                    "<th>Botoak</th>" +
-                                    "<th>Ehunekoa</th>" +
+                                    "<td>Bai</td>" +
+                                    "<td>" + d.properties.datuak.bai + "</td>" +
+                                    "<td>%" + kalkulatuEhunekoa(d.properties.datuak.bai, guztira, 2) + "</td>" +
                                 "</tr>" +
-                            "</thead>" +
-                            "<tr>" +
-                                "<td>Bai</td>" +
-                                "<td>" + d.properties.datuak.bai + "</td>" +
-                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.bai, guztira, 2) + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                                "<td>Ez</td>" +
-                                "<td>" + d.properties.datuak.ez + "</td>" +
-                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.ez, guztira, 2) + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                                "<td>Zuriak</td>" +
-                                "<td>" + d.properties.datuak.zuria + "</td>" +
-                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.zuria, guztira, 2) + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                                "<td>Baliogabeak</td>" +
-                                "<td>" + d.properties.datuak.baliogabea + "</td>" +
-                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.baliogabea, guztira, 2) + "</td>" +
-                            "</tr>" +
-                        "</table>";
+                                "<tr>" +
+                                    "<td>Ez</td>" +
+                                    "<td>" + d.properties.datuak.ez + "</td>" +
+                                    "<td>%" + kalkulatuEhunekoa(d.properties.datuak.ez, guztira, 2) + "</td>" +
+                                "</tr>" +
+                                "<tr>" +
+                                    "<td>Zuriak</td>" +
+                                    "<td>" + d.properties.datuak.zuria + "</td>" +
+                                    "<td>%" + kalkulatuEhunekoa(d.properties.datuak.zuria, guztira, 2) + "</td>" +
+                                "</tr>" +
+                                "<tr>" +
+                                    "<td>Baliogabeak</td>" +
+                                    "<td>" + d.properties.datuak.baliogabea + "</td>" +
+                                    "<td>%" + kalkulatuEhunekoa(d.properties.datuak.baliogabea, guztira, 2) + "</td>" +
+                                "</tr>" +
+                            "</table>";
+
+            } else if (d.properties.datuak.data) {
+
+                katea = "<div class='herria'><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
+                        "<div class='data'>Galdeketaren data: " + d.properties.datuak.data + "</div>";
+
+            } else {
+
+                katea = "<div class='herria'><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
+                        "<div class='data'>Oraindik ez da zehaztu galdeketaren data.</div>";
+            }
+
             return katea;
 
         });
