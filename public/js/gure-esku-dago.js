@@ -50,7 +50,7 @@
         }
 
         tip.html(function(d) {
-            console.log(d.properties);
+
             var katea = "<div><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
                         "<div>Galdera: " + d.properties.datuak.galdera + "</div>" +
                         "<div>Data: " + d.properties.datuak.data + "</div>" +
@@ -224,8 +224,6 @@
                 .enter().append("path")
                 .attr("fill", function(d) {
 
-                    console.log(d.properties.datuak);
-
                     // Udalerriko emaitzen arabera koloreztatuko dugu.
                     if (d.properties.datuak) {
 
@@ -368,7 +366,7 @@
 
                             }
                         } else if (d.properties.datuak.data) {
-                            console.log(aukerak.koloreak.galdeketa_iragarria);
+                            
                             return aukerak.koloreak.galdeketa_iragarria;
 
                         }
