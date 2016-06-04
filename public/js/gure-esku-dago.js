@@ -311,12 +311,14 @@
                         if (d.emaitza === "bai") {
 
                             herriak.alde++;
-                            biztanleak.alde = biztanleak.alde + biztanleria2014;
+                            biztanleak.alde = biztanleak.alde + parseInt(d.bai, 10);
+                            biztanleak.aurka = biztanleak.aurka + parseInt(d.ez, 10);
 
                         } else if (d.emaitza === "ez") {
 
                             herriak.aurka++;
-                            biztanleak.aurka = biztanleak.aurka + biztanleria2014;
+                            biztanleak.alde = biztanleak.alde + parseInt(d.bai, 10);
+                            biztanleak.aurka = biztanleak.aurka + parseInt(d.ez, 10);
 
                         } else {
 
