@@ -50,17 +50,15 @@
         }
 
         tip.html(function(d) {
-
+            console.log(d.properties);
             var katea = "<div><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
-                        "<div>Biztanleak: " + d.properties.datuak.biztanleria2014 + "</div>";
-
-            if (d.properties.datuak.emaitza === "bai") {
-                katea = katea + "<div>Emaitza: ALDE</div>";
-            } else if (d.properties.datuak.emaitza === "ez") {
-                katea = katea + "<div>Emaitza: KONTRA</div>";
-            } else {
-                katea = katea + "<div>Emaitza: ERABAKITZEKE</div>";
-            }
+                        "<div>Galdera: " + d.properties.datuak.galdera + "</div>" +
+                        "<div>Data: " + d.properties.datuak.data + "</div>" +
+                        "<div>Partehartzea: %" + d.properties.datuak.partehartzea + "</div>" +
+                        "<div>BAI: " + d.properties.datuak.bai + "</div>" +
+                        "<div>EZ: " + d.properties.datuak.ez + "</div>" +
+                        "<div>Zuriak: " + d.properties.datuak.zuria + "</div>" +
+                        "<div>Baliogabeak: " + d.properties.datuak.baliogabea + "</div>";
 
             return katea;
 
@@ -375,7 +373,7 @@
 
                         }
                     }
-                    
+
                     // Daturik ez badago...
                     return "#ffffff";
 
