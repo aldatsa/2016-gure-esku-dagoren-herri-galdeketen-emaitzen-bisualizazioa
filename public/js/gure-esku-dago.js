@@ -100,6 +100,12 @@
         console.log(grafikoa);
     }
 
+    function kalkulatuEhunekoa(balioa, guztira, hamartarrak) {
+
+        return (100 * parseInt(balioa, 10) / guztira).toFixed(hamartarrak).replace(/\./g, ',');
+
+    }
+
     function onMouseOut(d) {
 
         tip.hide();
@@ -120,16 +126,35 @@
 
         tip.html(function(d) {
 
-            var katea = "<div><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
-                        "<div id='tip-grafikoa'></div>" +
-                        "<div>Galdera: " + d.properties.datuak.galdera + "</div>" +
-                        "<div>Data: " + d.properties.datuak.data + "</div>" +
-                        "<div>Partehartzea: %" + d.properties.datuak.partehartzea + "</div>" +
-                        "<div>BAI: " + d.properties.datuak.bai + "</div>" +
-                        "<div>EZ: " + d.properties.datuak.ez + "</div>" +
-                        "<div>Zuriak: " + d.properties.datuak.zuria + "</div>" +
-                        "<div>Baliogabeak: " + d.properties.datuak.baliogabea + "</div>";
+            var guztira = parseInt(d.properties.datuak.bai, 10) + parseInt(d.properties.datuak.ez, 10) + parseInt(d.properties.datuak.zuria, 10) + parseInt(d.properties.datuak.baliogabea, 10);
 
+            var katea = "<div class='herria'><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
+                        "<div class='data'>" + d.properties.datuak.data + "</div>" +
+                        "<div id='tip-grafikoa'></div>" +
+                        "<div class='galdera'><strong>" + d.properties.datuak.galdera + "</strong></div>" +
+                        "<div>Partehartzea: %" + d.properties.datuak.partehartzea + "</div>" +
+                        "<table>" +
+                            "<tr>" +
+                                "<td>BAI</td>" +
+                                "<td>" + d.properties.datuak.bai + "</td>" +
+                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.bai, guztira, 2) + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>EZ</td>" +
+                                "<td>" + d.properties.datuak.ez + "</td>" +
+                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.ez, guztira, 2) + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>Zuriak</td>" +
+                                "<td>" + d.properties.datuak.zuria + "</td>" +
+                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.zuria, guztira, 2) + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<td>Baliogabeak</td>" +
+                                "<td>" + d.properties.datuak.baliogabea + "</td>" +
+                                "<td>%" + kalkulatuEhunekoa(d.properties.datuak.baliogabea, guztira, 2) + "</td>" +
+                            "</tr>" +
+                        "<table>";
             return katea;
 
         });
@@ -278,9 +303,9 @@
                         }
 
                         biztanleak.guztira = biztanleak.guztira + biztanleria2014;
-                    }
 
-                    herriak.guztira++;
+                        herriak.guztira++;
+                    }
 
                 });
             });

@@ -156,3 +156,10 @@ body {
     left: 430px;
     top: 280px;
 }
+.d3-tip .herria {
+    font-size: 18px;
+}
+.d3-tip .data {
+    font-size: 12px;
+    color: #777;
+}
