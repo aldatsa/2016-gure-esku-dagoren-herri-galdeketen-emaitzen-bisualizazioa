@@ -132,15 +132,22 @@
                         "<div class='data'>" + d.properties.datuak.data + "</div>" +
                         "<div id='tip-grafikoa'></div>" +
                         "<div class='galdera'><strong>" + d.properties.datuak.galdera + "</strong></div>" +
-                        "<div>Partehartzea: %" + d.properties.datuak.partehartzea + "</div>" +
-                        "<table>" +
+                        "<div class='partehartzea'><strong>Partehartzea:</strong> %" + d.properties.datuak.partehartzea + "</div>" +
+                        "<table class='emaitzak'>" +
+                            "<thead>" +
+                                "<tr>" +
+                                    "<th></th>" +
+                                    "<th>Botoak</th>" +
+                                    "<th>Ehunekoa</th>" +
+                                "</tr>" +
+                            "</thead>" +
                             "<tr>" +
-                                "<td>BAI</td>" +
+                                "<td>Bai</td>" +
                                 "<td>" + d.properties.datuak.bai + "</td>" +
                                 "<td>%" + kalkulatuEhunekoa(d.properties.datuak.bai, guztira, 2) + "</td>" +
                             "</tr>" +
                             "<tr>" +
-                                "<td>EZ</td>" +
+                                "<td>Ez</td>" +
                                 "<td>" + d.properties.datuak.ez + "</td>" +
                                 "<td>%" + kalkulatuEhunekoa(d.properties.datuak.ez, guztira, 2) + "</td>" +
                             "</tr>" +
@@ -154,7 +161,7 @@
                                 "<td>" + d.properties.datuak.baliogabea + "</td>" +
                                 "<td>%" + kalkulatuEhunekoa(d.properties.datuak.baliogabea, guztira, 2) + "</td>" +
                             "</tr>" +
-                        "<table>";
+                        "</table>";
             return katea;
 
         });
