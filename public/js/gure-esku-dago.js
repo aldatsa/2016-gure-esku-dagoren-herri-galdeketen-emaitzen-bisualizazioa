@@ -31,6 +31,78 @@
 
     }
 
+    function bistaratuHerriarenEmaitzenGrafikoa(id, hautesleak, bai, ez, bai_kolorea, ez_kolorea) {
+        console.log(hautesleak);
+        console.log(bai);
+        console.log(ez);
+        var grafikoa = c3.generate({
+            bindto: id,
+            size: {
+                height: 150,
+                width: 100
+            },
+            legend: {
+                hide: true
+            },
+            transition: {
+                duration: 1000
+            },
+            data: {
+                columns: [
+                    ["bai", bai],
+                    ["ez", ez]
+                ],
+                type: "bar",
+                colors: {
+                    "bai": bai_kolorea,
+                    "ez": ez_kolorea
+                },
+                labels: {
+                    format: {
+                        "bai": function(v, id, i, j) {
+                            return v;
+                        },
+                        "ez": function(v, id, i, j) {
+                            return v;
+                        }
+                    }
+                }
+            },
+            axis: {
+                x: {
+                    show: false
+                },
+                y: {
+                    max: hautesleak,
+                    show: true
+                }
+            },
+            grid: {
+                y: {
+                    lines: [{
+                        value: Math.round(hautesleak / 2),
+                        text: "Erdiak: " + Math.round(hautesleak / 2),
+                        axis: "y",
+                        position: "end"
+                    }]
+                }
+            },
+            tooltip: {
+                format: {
+                    title: function(d) {
+                        return "Biztanleak";
+                    }
+                }
+            },
+            bar: {
+                width: {
+                    ratio: 0.5
+                }
+            }
+        });
+        console.log(grafikoa);
+    }
+
     function onMouseOut(d) {
 
         tip.hide();
@@ -52,6 +124,7 @@
         tip.html(function(d) {
 
             var katea = "<div><strong>" + d.properties.datuak.euskarazko_izena + "</strong></div>" +
+                        "<div id='tip-grafikoa'></div>" +
                         "<div>Galdera: " + d.properties.datuak.galdera + "</div>" +
                         "<div>Data: " + d.properties.datuak.data + "</div>" +
                         "<div>Partehartzea: %" + d.properties.datuak.partehartzea + "</div>" +
@@ -256,6 +329,7 @@
                 .attr("d", kolore_maparen_bidea)
                 .on("mouseover", function(d) {
                     onMouseOver(d);
+                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), "#00ff00", "#ff0000");
                 })
                 .on("mouseout", function(d) {
                     onMouseOut(d);
@@ -366,7 +440,7 @@
 
                             }
                         } else if (d.properties.datuak.data) {
-                            
+
                             return aukerak.koloreak.galdeketa_iragarria;
 
                         }
