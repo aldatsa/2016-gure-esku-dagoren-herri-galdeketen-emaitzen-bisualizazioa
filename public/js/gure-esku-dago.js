@@ -32,9 +32,6 @@
     }
 
     function bistaratuHerriarenEmaitzenGrafikoa(id, hautesleak, bai, ez, bai_kolorea, ez_kolorea) {
-        console.log(hautesleak);
-        console.log(bai);
-        console.log(ez);
 
         var max = bai;
 
@@ -97,7 +94,7 @@
                 }
             }
         });
-        console.log(grafikoa);
+        
     }
 
     function kalkulatuEhunekoa(balioa, guztira, hamartarrak) {
