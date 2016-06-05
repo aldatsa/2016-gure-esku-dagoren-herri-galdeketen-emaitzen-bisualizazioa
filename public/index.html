@@ -14,24 +14,12 @@
 		<div id="kontainerra">
 			<div class="izenburua">Gure Esku Dagoren herri galdeketen emaitzak</div>
 			<div class="azalpena"></div>
-			<table class="legenda">
-				<tr>
-					<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
-					<td>Alde</td>
-				</tr>
-				<tr>
-                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
-					<td>Aurka</td>
-				</tr>
-				<tr>
-                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
-					<td>Galdeketa iragarrita</td>
-				</tr>
-				<tr>
-                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
-					<td>Erabakitzeke</td>
-				</tr>
-			</table>
+			<div id="grafikoak">
+				<div id="biztanleria-grafikoa"></div>
+				<div id="biztanleria-grafikoa-etiketa">Biztanleak</div>
+				<div id="herriak-grafikoa"></div>
+				<div id="herriak-grafikoa-etiketa">Herriak</div>
+			</div>
             <div id="kredituak">
 				<a target="_blank" href="http://www.argia.eus"><img id="mapa-argia-logoa" src="img/argia-gardena.png"></a>
 				<a target="_blank" href="http://www.iametza.eus"><img id="mapa-iametza-logoa" src="img/iametza.png"></a>
@@ -48,51 +36,51 @@
 			</div>
             <div id="mapa">
                 <svg></svg>
+				<table class="legenda">
+					<tr>
+						<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+						<td>Alde</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+						<td>Aurka</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
+						<td>Galdeketa iragarrita</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+						<td>Erabakitzeke</td>
+					</tr>
+				</table>
             </div>
-			
+
 			<div id="sinbolo-proportzionalen-mapa">
-                <svg>
-					<defs>
-				        <pattern id="pattern-stripe"
-				          	width="4" height="4"
-				          	patternUnits="userSpaceOnUse"
-				          	patternTransform="rotate(315)">
-				          	<rect width="1" height="4" transform="translate(0,0)" fill="#333"></rect>
-				        </pattern>
-				        <mask id="mask-stripe">
-				          	<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
-				        </mask>
-					</defs>
-				</svg>
+                <svg></svg>
+				<table class="sinbolo-proportzionalen-maparen-legenda">
+					<tr>
+						<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+						<td>Alde</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+						<td>Aurka</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
+						<td>Galdeketa iragarrita</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+						<td>Erabakitzeke</td>
+					</tr>
+				</table>
+				<div id="zirkuluen-legenda">
+					<img src="img/zirkuluak.png">
+					<div id="zirkuluen-oharra">Zirkuluen diametroak udalerrien biztanleriarekiko proportzionalak dira</div>
+				</div>
             </div>
-			<table class="sinbolo-proportzionalen-maparen-legenda">
-				<tr>
-					<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
-					<td>Alde</td>
-				</tr>
-				<tr>
-                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
-					<td>Aurka</td>
-				</tr>
-				<tr>
-                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
-					<td>Galdeketa iragarrita</td>
-				</tr>
-				<tr>
-                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
-					<td>Erabakitzeke</td>
-				</tr>
-			</table>
-			<div id="zirkuluen-legenda">
-				<img src="img/zirkuluak.png">
-				<div id="zirkuluen-oharra">Zirkuluen diametroak udalerrien biztanleriarekiko proportzionalak dira</div>
-			</div>
-			<div id="grafikoak">
-				<div id="biztanleria-grafikoa"></div>
-				<div id="biztanleria-grafikoa-etiketa">Biztanleak</div>
-				<div id="herriak-grafikoa"></div>
-				<div id="herriak-grafikoa-etiketa">Herriak</div>
-			</div>
         </div>
         <script type="text/javascript" src="js/d3/d3.min.js"></script>
 		<script type="text/javascript" src="js/topojson/topojson.js"></script>

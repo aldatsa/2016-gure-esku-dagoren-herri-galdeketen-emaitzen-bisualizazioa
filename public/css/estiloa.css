@@ -11,7 +11,7 @@ body {
     margin: 0 auto 0 auto;
     width: 680px;
     position: relative;
-    height: 1585px;
+    height: 1470px;
     font-size: 16px;
     border: 1px solid black;
 }
@@ -31,9 +31,8 @@ body {
 
 #grafikoak {
     text-align: center;
-    position: absolute;
-    top: 50px;
     width: 100%;
+    position: relative;
 }
 
 #grafikoak #biztanleria-grafikoa, #grafikoak #herriak-grafikoa {
@@ -45,8 +44,12 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
-
+#sinbolo-proportzionalen-mapa {
+    position: relative;
+    margin-top: 40px;
+}
 .unitatea {
 
 }
@@ -78,7 +81,7 @@ body {
 
 #zirkuluen-legenda {
     position: absolute;
-    top: 1425px;
+    top: 395px;
     left: 25px;
 }
 
@@ -95,14 +98,14 @@ body {
 
 .sinbolo-proportzionalen-maparen-legenda {
     position: absolute;
-    top: 1420px;
+    top: 400px;
     left: 520px;
 }
 
 .legenda {
     left: 520px;
     position: absolute;
-    top: 865px;
+    top: 395px;
 }
 
 .legenda, .sinbolo-proportzionalen-maparen-legenda {
@@ -126,7 +129,7 @@ body {
     font-size: 11px;
     left: 3px;
     position: absolute;
-    top: 900px;
+    top: 690px;
     width: 250px;
     text-align: center;
 }
@@ -149,12 +152,12 @@ body {
 #biztanleria-grafikoa-etiketa {
     position: absolute;
     left: 190px;
-    top: 280px;
+    top: 180px;
 }
 #herriak-grafikoa-etiketa {
     position: absolute;
     left: 430px;
-    top: 280px;
+    top: 180px;
 }
 .d3-tip .herria {
     font-size: 18px;

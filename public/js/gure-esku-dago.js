@@ -187,11 +187,11 @@
     var aukerak = {
         kolore_mapa: {
             zabalera: 680,
-            altuera: 980,
+            altuera: 550,
             proiekzioa: {
                 erdia: {
                     lat: -2.05,
-                    lng: 43.40
+                    lng: 42.75
                 },
                 eskala: 13500
             }
@@ -506,7 +506,7 @@
             var biztanleen_grafikoa = c3.generate({
                 bindto: "#biztanleria-grafikoa",
                 size: {
-                    height: 300,
+                    height: 200,
                     width: 200
                 },
                 legend: {
@@ -569,7 +569,7 @@
             var herrien_grafikoa = c3.generate({
                 bindto: "#herriak-grafikoa",
                 size: {
-                    height: 300,
+                    height: 200,
                     width: 200
                 },
                 legend: {
