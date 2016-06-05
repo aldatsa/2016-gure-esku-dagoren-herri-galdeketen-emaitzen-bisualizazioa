@@ -84,7 +84,7 @@
             tooltip: {
                 format: {
                     title: function(d) {
-                        return "Biztanleak";
+                        return "Botoak guztira";
                     }
                 }
             },
@@ -94,7 +94,7 @@
                 }
             }
         });
-        
+
     }
 
     function kalkulatuEhunekoa(balioa, guztira, hamartarrak) {
@@ -539,24 +539,21 @@
                         show: false
                     },
                     y: {
-                        max: biztanleak.guztira,
+                        max: (function() {
+                            var max = biztanleak.alde;
+
+                            if (biztanleak.aurka > biztanleak.alde) {
+                                max = biztanleak.alde;
+                            }
+                            return max;
+                        })(),
                         show: false
-                    }
-                },
-                grid: {
-                    y: {
-                        lines: [{
-                            value: Math.round(biztanleak.guztira / 2),
-                            text: "Erdiak: " + Math.round(biztanleak.guztira / 2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."),
-                            axis: "y",
-                            position: "end"
-                        }]
                     }
                 },
                 tooltip: {
                     format: {
                         title: function(d) {
-                            return "Biztanleak";
+                            return "Botoak guztira";
                         }
                     }
                 },
@@ -596,18 +593,15 @@
                         show: false
                     },
                     y: {
-                        max: herriak.guztira,
+                        max: (function() {
+                            var max = herriak.alde;
+
+                            if (herriak.aurka > herriak.alde) {
+                                max = herriak.alde;
+                            }
+                            return max;
+                        })(),
                         show: false
-                    }
-                },
-                grid: {
-                    y: {
-                        lines: [{
-                            value: Math.round(herriak.guztira / 2),
-                            text: "Erdiak: " + Math.round(herriak.guztira / 2),
-                            axis: "y",
-                            position: "end"
-                        }]
                     }
                 },
                 tooltip: {
