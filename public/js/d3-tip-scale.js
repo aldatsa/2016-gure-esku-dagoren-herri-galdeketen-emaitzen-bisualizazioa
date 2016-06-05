@@ -2,7 +2,10 @@
 // Copyright (c) 2013 Justin Palmer
 //
 // Tooltips for d3.js SVG visualizations
-//  fix directions near screen boundaries for n and s direction #131 https://github.com/Caged/d3-tip/pull/131
+//
+// Aldaketak:
+// * Eskalatzean tooltip-aren kokapena zuzendu (ez dabil guztiz ondo).
+// * Tooltip-a ezker eta eskuinetik pantailatik ez ateratzea lortu: fix directions near screen boundaries for n and s direction #131 https://github.com/Caged/d3-tip/pull/131
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
