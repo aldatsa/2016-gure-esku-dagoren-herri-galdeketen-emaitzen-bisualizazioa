@@ -111,16 +111,6 @@
 
     function onMouseOver(d) {
 
-        if (["Hendaia", "Biriatu", "Urruña", "Ziburu", "Azkaine", "Getaria"].indexOf(d.properties.datuak.euskarazko_izena) >= 0) {
-            tip.direction("e");
-        } else if (["Larraine", "Urdatx/ Santa-Grazi"].indexOf(d.properties.datuak.euskarazko_izena) >= 0) {
-            tip.direction("n");
-        } else if (["Hauze", "Montori = Berorize", "Atharratze-Sorholüze", "Barkoxe", "Eskiula", "Sohüta", "Mitikile-larrori-Mendibile"].indexOf(d.properties.datuak.euskarazko_izena) >= 0) {
-            tip.direction("w");
-        } else {
-            tip.direction("s");
-        }
-
         tip.html(function(d) {
 
             var guztira = parseInt(d.properties.datuak.bai, 10) + parseInt(d.properties.datuak.ez, 10) + parseInt(d.properties.datuak.zuria, 10) + parseInt(d.properties.datuak.baliogabea, 10);
