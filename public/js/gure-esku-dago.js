@@ -373,7 +373,7 @@
                 .attr("d", kolore_maparen_bidea)
                 .on("mouseover", function(d) {
                     onMouseOver(d);
-                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), "#00ff00", "#ff0000");
+                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), aukerak.koloreak.bai, aukerak.koloreak.ez);
                 })
                 .on("mouseout", function(d) {
                     onMouseOut(d);
@@ -413,7 +413,7 @@
                 .attr("d", sinbolo_proportzionalen_maparen_bidea)
                 .on("mouseover", function(d) {
                     onMouseOver(d);
-                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), "#00ff00", "#ff0000");
+                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), aukerak.koloreak.bai, aukerak.koloreak.ez);
                 })
                 .on("mouseout", function(d) {
                     onMouseOut(d);
@@ -497,7 +497,7 @@
                 })
                 .on("mouseover", function(d) {
                     onMouseOver(d);
-                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), "#00ff00", "#ff0000");
+                    bistaratuHerriarenEmaitzenGrafikoa("#tip-grafikoa", parseInt(d.properties.datuak.hautesleak, 10), parseInt(d.properties.datuak.bai, 10), parseInt(d.properties.datuak.ez, 10), aukerak.koloreak.bai, aukerak.koloreak.ez);
                 })
                 .on("mouseout", function(d) {
                     onMouseOut(d);
