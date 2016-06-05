@@ -2,7 +2,7 @@ lurralde_kodea,herrialdea,euskarazko_izena,izen_ofiziala,biztanleria2014,emaitza
 EH,,EUSKAL HERRIA,Euskal Herria / País Vasco / Pays Basque,3.124.259,,,,,,,,,
 01001,Araba,Dulantzi,Alegría-Dulantzi,2.925,,,,,,,,,
 01002,Araba,Amurrio,Amurrio,10.239,,,,,,,,,
-01003,Araba,Aramaio,Aramaio,1.478,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+01003,Araba,Aramaio,Aramaio,1.478,bai,602,28,2,7,602,"51,34",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 01004,Araba,Artziniega,Artziniega,1.818,,,,,,,,,
 01006,Araba,Armiñón,Armiñón,250,,,,,,,,,
 01008,Araba,Arratzua-Ubarrundia,Arrazua-Ubarrundia,994,,,,,,,,,
@@ -63,14 +63,14 @@ EH,,EUSKAL HERRIA,Euskal Herria / País Vasco / Pays Basque,3.124.259,,,,,,,,,
 20008,Gipuzkoa,Amezketa,Amezketa,968,,,,,,,,2017-03-19,
 20009,Gipuzkoa,Andoain,Andoain,14.655,,,,,,,,,
 20010,Gipuzkoa,Anoeta,Anoeta,1.893,,,,,,,,2017-03-19,
-20011,Gipuzkoa,Antzuola,Antzuola,2.193,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20011,Gipuzkoa,Antzuola,Antzuola,2.193,bai,681,19,1,8,709,"40,42",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 20012,Gipuzkoa,Arama,Arama,217,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
-20013,Gipuzkoa,Aretxabaleta,Aretxabaleta,6.995,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20013,Gipuzkoa,Aretxabaleta,Aretxabaleta,6.995,bai,1618,69,2,11,1700,"29,41",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 20014,Gipuzkoa,Asteasu,Asteasu,1.523,,,,,,,,2017-03-19,
 20015,Gipuzkoa,Ataun,Ataun,1.700,bai,776,25,6,4,811,"59,4",2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
 20016,Gipuzkoa,Aia,Aia,2.039,,,,,,,,,
 20017,Gipuzkoa,Azkoitia,Azkoitia,11.480,,,,,,,,,
-20018,Gipuzkoa,Azpeitia,Azpeitia,14.580,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20018,Gipuzkoa,Azpeitia,Azpeitia,14.580,bai,4524,188,17,52,4781,"39,37",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 20019,Gipuzkoa,Beasain,Beasain,13.812,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
 20020,Gipuzkoa,Beizama,Beizama,167,,,,,,,,,
 20021,Gipuzkoa,Belauntza,Belauntza,260,,,,,,,,2017-03-19,
@@ -85,8 +85,8 @@ EH,,EUSKAL HERRIA,Euskal Herria / País Vasco / Pays Basque,3.124.259,,,,,,,,,
 20030,Gipuzkoa,Eibar,Eibar,27.440,,,,,,,,,
 20031,Gipuzkoa,Elduain,Elduain,239,,,,,,,,2017-03-19,
 20032,Gipuzkoa,Elgoibar,Elgoibar,11.488,,,,,,,,,
-20033,Gipuzkoa,Elgeta,Elgeta,1.121,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
-20034,Gipuzkoa,Eskoriatza,Eskoriatza,4.090,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20033,Gipuzkoa,Elgeta,Elgeta,1.121,bai,338,7,0,0,345,"36,86",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20034,Gipuzkoa,Eskoriatza,Eskoriatza,4.090,bai,803,86,3,2,894,"26,6",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 20035,Gipuzkoa,Ezkio-Itsaso,Ezkio-Itsaso,609,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
 20036,Gipuzkoa,Hondarribia,Hondarribia,16.894,,,,,,,,,
 20037,Gipuzkoa,Gaintza,Gaintza,120,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
@@ -111,7 +111,7 @@ EH,,EUSKAL HERRIA,Euskal Herria / País Vasco / Pays Basque,3.124.259,,,,,,,,,
 20056,Gipuzkoa,Mutriku,Mutriku,5.293,,,,,,,,,
 20057,Gipuzkoa,Mutiloa,Mutiloa,262,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
 20058,Gipuzkoa,Olaberria,Olaberria,957,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
-20059,Gipuzkoa,Oñati,Oñati,11.282,,,,,,,,2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
+20059,Gipuzkoa,Oñati,Oñati,11.282,bai,3232,100,10,29,3371,"35,6",2016-06-05,Nahi al duzu izan euskal estatu independente bateko herritar?
 20060,Gipuzkoa,Orexa,Orexa,123,,,,,,,,2017-03-19,
 20061,Gipuzkoa,Orio,Orio,5.694,,,,,,,,,
 20062,Gipuzkoa,Ormaiztegi,Ormaiztegi,1.305,,,,,,,,2016-06-05,Nahi al duzu euskal estatu burujabe bateko herritarra izan?
