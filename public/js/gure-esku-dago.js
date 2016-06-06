@@ -97,6 +97,40 @@
 
     }
 
+    function bistaratuHerrienDatuenTaula(datuak) {
+
+        var katea = "";
+
+        datuak.filter(function(element, index, array) {
+            return (element.botoa_emandakoak > 0);
+        }).sort(function(a, b) {
+            return (a.euskarazko_izena > b.euskarazko_izena);
+        }).forEach(function(element, index, array) {
+
+            var guztira = parseInt(element.bai, 10) + parseInt(element.ez, 10) + parseInt(element.zuria, 10) + parseInt(element.baliogabea, 10);
+
+            katea = katea +
+                "<tr>" +
+                    "<td>" + element.euskarazko_izena + "</td>" +
+                    "<td>" + element.hautesleak + "</td>" +
+                    "<td>" + element.botoa_emandakoak + "</td>" +
+                    "<td>%" + element.partehartzea + "</td>" +
+                    "<td>" + element.bai + "</td>" +
+                    "<td>%" + kalkulatuEhunekoa(element.bai, guztira, 2) + "</td>" +
+                    "<td>" + element.ez + "</td>" +
+                    "<td>%" + kalkulatuEhunekoa(element.ez, guztira, 2) + "</td>" +
+                    "<td>" + element.zuria + "</td>" +
+                    "<td>%" + kalkulatuEhunekoa(element.zuria, guztira, 2) + "</td>" +
+                    "<td>" + element.baliogabea + "</td>" +
+                    "<td>%" + kalkulatuEhunekoa(element.baliogabea, guztira, 2) + "</td>" +
+                "</tr>";
+        });
+
+        var tbody = document.querySelector(".emaitzak-herriz-herri tbody");
+
+        tbody.innerHTML = katea;
+    }
+
     function kalkulatuEhunekoa(balioa, guztira, hamartarrak) {
 
         return (100 * parseInt(balioa, 10) / guztira).toFixed(hamartarrak).replace(/\./g, ',');
@@ -324,6 +358,8 @@
 
             console.log(biztanleak.guztira);
             console.log(herriak.guztira);
+
+            bistaratuHerrienDatuenTaula(emaitzak);
 
             // Udal guztiak.
             svg.selectAll(".unitatea")
