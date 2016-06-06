@@ -1,5 +1,7 @@
 # ARGIA.eus - Gure Esku Dagoren herri galdeketen emaitzen bisualizazioa
 
+http://www.argia.eus/albistea/galdeketen-emaitzak-herriz-herri
+
 ## Lizentzia
 
 Bisualizazio hau software librea da eta iturburu-kodeak [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html) (GPL) lizentzia du.
