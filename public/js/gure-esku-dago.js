@@ -178,8 +178,8 @@
         });
 
         // don't want dots overlapping axis, so add in buffer to data domain
-        xScale.domain([d3.min(datuak, xValue)-1, d3.max(datuak, xValue)+1]);
-        yScale.domain([d3.min(datuak, yValue)-1, d3.max(datuak, yValue)+1]);
+        xScale.domain([0, d3.max(datuak, xValue) + 1000]);
+        yScale.domain([0, 80]);
 
         // x-axis
         svg.append("g")
