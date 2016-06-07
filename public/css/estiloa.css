@@ -211,3 +211,38 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+#biztanleria-vs-partehartzea-grafikoa {
+  font: 11px sans-serif;
+}
+#biztanleria-vs-partehartzea-grafikoa .axis path,
+#biztanleria-vs-partehartzea-grafikoa .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+#biztanleria-vs-partehartzea-grafikoa .dot {
+    stroke: #000;
+}
+.tooltip-biztanleria-vs-partehartzea-grafikoa {
+    position: absolute;
+    width: 200px;
+    pointer-events: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}
+.tooltip-biztanleria-vs-partehartzea-grafikoa .izenburua {
+    background-color: #b50000;
+    color: #ffffff;
+    font-size: 16px;
+}
+.tooltip-biztanleria-vs-partehartzea-grafikoa table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.tooltip-biztanleria-vs-partehartzea-grafikoa table tr:first-child {
+    border-bottom: 1px solid #ccc;
+}
+.tooltip-biztanleria-vs-partehartzea-grafikoa table td:last-child {
+    text-align: right;
+}
