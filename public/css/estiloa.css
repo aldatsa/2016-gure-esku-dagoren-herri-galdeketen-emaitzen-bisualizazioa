@@ -211,46 +211,46 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-#biztanleria-vs-partehartzea-grafikoa-etiketa, #emaitzak-herriz-herri-etiketa {
+.biztanleria-vs-grafikoa-etiketa, #emaitzak-herriz-herri-etiketa {
     text-align: center;
     margin-top: 50px;
 }
-#biztanleria-vs-partehartzea-grafikoa-azalpena {
+.biztanleria-vs-grafikoa-azalpena {
     color: #999;
     text-align: center;
 }
-#biztanleria-vs-partehartzea-grafikoa {
+.biztanleria-vs-grafikoa {
   font: 11px sans-serif;
 }
-#biztanleria-vs-partehartzea-grafikoa .axis path,
-#biztanleria-vs-partehartzea-grafikoa .axis line {
+.biztanleria-vs-grafikoa .axis path,
+.biztanleria-vs-grafikoa .axis line {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
 }
-#biztanleria-vs-partehartzea-grafikoa .dot {
+.biztanleria-vs-grafikoa .dot {
     stroke: #000;
 }
-.tooltip-biztanleria-vs-partehartzea-grafikoa {
+.tooltip-biztanleria-vs {
     position: absolute;
     width: 200px;
     pointer-events: none;
     background-color: #ffffff;
     border: 1px solid #ccc;
 }
-.tooltip-biztanleria-vs-partehartzea-grafikoa .izenburua {
+.tooltip-biztanleria-vs .izenburua {
     background-color: #b50000;
     color: #ffffff;
     font-size: 16px;
 }
-.tooltip-biztanleria-vs-partehartzea-grafikoa table {
+.tooltip-biztanleria-vs table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
 }
-.tooltip-biztanleria-vs-partehartzea-grafikoa table tr:first-child {
+.tooltip-biztanleria-vs table tr:first-child {
     border-bottom: 1px solid #ccc;
 }
-.tooltip-biztanleria-vs-partehartzea-grafikoa table td:last-child {
+.tooltip-biztanleria-vs table td:last-child {
     text-align: right;
 }
