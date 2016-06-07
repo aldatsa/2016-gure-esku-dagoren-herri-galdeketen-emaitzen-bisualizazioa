@@ -211,6 +211,14 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+#biztanleria-vs-partehartzea-grafikoa-etiketa, #emaitzak-herriz-herri-etiketa {
+    text-align: center;
+    margin-top: 50px;
+}
+#biztanleria-vs-partehartzea-grafikoa-azalpena {
+    color: #999;
+    text-align: center;
+}
 #biztanleria-vs-partehartzea-grafikoa {
   font: 11px sans-serif;
 }

@@ -191,7 +191,8 @@
             .attr("x", width)
             .attr("y", 28)
             .style("text-anchor", "end")
-            .text("Biztanleria 2014");
+            .style("font-weight", "bold")
+            .text("Biztanleria");
 
         // y-axis
         svg.append("g")
@@ -203,6 +204,7 @@
             .attr("y", -38)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
+            .style("font-weight", "bold")
             .text("Partehartzea (%)");
 
         // draw dots
@@ -213,7 +215,7 @@
             .attr("r", 3.5)
             .attr("cx", xMap)
             .attr("cy", yMap)
-            .style("fill", "#000000")
+            .style("fill", "blue")
             .on("mouseover", function(d) {
                 console.log(d);
                 tooltip.transition()
