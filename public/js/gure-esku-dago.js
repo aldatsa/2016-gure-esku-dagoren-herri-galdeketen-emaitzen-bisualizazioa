@@ -202,6 +202,10 @@
 
             yScale.domain([0, d3.max(datuak, yValue) + 1000]);
 
+        } else if (gakoa_y === "langabezia_tasa_2014"){
+
+            yScale.domain([0, 30]);
+
         } else {
 
             yScale.domain([0, 100]);
@@ -798,7 +802,7 @@
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Bai (%)", "Biztanleria", aukerak.koloreak.bai);
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Ez (%)", "Biztanleria", aukerak.koloreak.ez);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.ez);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "langabezia_tasa_2014", "biztanleria2014", "Langabezia tasa 2014 (%)", "Biztanleria", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.ez);
             bistaratuHerrienDatuenTaula(emaitzak);
 
         });
