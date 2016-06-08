@@ -131,7 +131,7 @@
         tbody.innerHTML = katea;
     }
 
-    function marraztuBiztanleriaVsGrafikoa(hautatzailea, data, gakoa, tooltip_etiketa, kolorea) {
+    function marraztuBiztanleriaVsGrafikoa(hautatzailea, data, gakoa_x, gakoa_y, tooltip_etiketa_x, tooltip_etiketa_y, kolorea) {
 
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
             width = 685 - margin.left - margin.right,
@@ -145,22 +145,24 @@
          */
 
         // setup x
-        var xValue = function(d) { return d.biztanleria2014;}, // data -> value
+        var xValue = function(d) { return d[gakoa_x];}, // data -> value
             xScale = d3.scale.linear().range([0, width]), // value -> display
             xMap = function(d) { return xScale(xValue(d));}, // data -> display
             xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
-        // setup y
-        if (gakoa === "partehartzea") {
+        var yValue;
 
-            var yValue = function(d) {
-                return d.partehartzea;
+        // setup y
+        if (gakoa_y === "partehartzea" || gakoa_y === "langabezia_tasa_2014" || gakoa_y === "biztanleria2014") {
+
+            yValue = function(d) {
+                return d[gakoa_y];
             };
 
         } else {
 
-            var yValue = function(d) {
-                return (100 * d[gakoa] / (d.bai + d.ez + d.zuria + d.baliogabea)).toFixed(2);
+            yValue = function(d) {
+                return (100 * d[gakoa_y] / (d.bai + d.ez + d.zuria + d.baliogabea)).toFixed(2);
             };
 
         }
@@ -185,9 +187,26 @@
             return element.partehartzea;
         });
 
-        // don't want dots overlapping axis, so add in buffer to data domain
-        xScale.domain([0, d3.max(datuak, xValue) + 1000]);
-        yScale.domain([0, 100]);
+        if (gakoa_x === "biztanleria2014") {
+
+            // don't want dots overlapping axis, so add in buffer to data domain
+            xScale.domain([0, d3.max(datuak, xValue) + 1000]);
+
+        } else if (gakoa_x === "langabezia_tasa_2014"){
+
+            xScale.domain([0, 30]);
+
+        }
+
+        if (gakoa_y === "biztanleria2014") {
+
+            yScale.domain([0, d3.max(datuak, yValue) + 1000]);
+
+        } else {
+
+            yScale.domain([0, 100]);
+
+        }
 
         // x-axis
         svg.append("g")
@@ -200,7 +219,7 @@
             .attr("y", 28)
             .style("text-anchor", "end")
             .style("font-weight", "bold")
-            .text("Biztanleria");
+            .text(tooltip_etiketa_x);
 
         // y-axis
         svg.append("g")
@@ -213,7 +232,7 @@
             .attr("dy", ".71em")
             .style("text-anchor", "end")
             .style("font-weight", "bold")
-            .text(tooltip_etiketa);
+            .text(tooltip_etiketa_y);
 
         // draw dots
         svg.selectAll(".dot")
@@ -232,11 +251,11 @@
                 tooltip.html("<div class='izenburua'>" + d.euskarazko_izena + "</div>" +
                              "<table>" +
                                 "<tr>" +
-                                    "<td>Biztanleria</td>" +
+                                    "<td>" + tooltip_etiketa_x + "</td>" +
                                     "<td>" + xValue(d) + "</td>" +
                                 "</tr>" +
                                 "<tr>" +
-                                    "<td>" + tooltip_etiketa + "</td>" +
+                                    "<td>" + tooltip_etiketa_y + "</td>" +
                                     "<td>%" + yValue(d) + "</td>" +
                                 "</tr>" +
       	                     "</table>")
@@ -458,6 +477,7 @@
                         e.properties.datuak.ez = parseInt(e.properties.datuak.ez.replace(/\./, ""), 10);
                         e.properties.datuak.zuria = parseInt(e.properties.datuak.zuria.replace(/\./, ""), 10);
                         e.properties.datuak.baliogabea = parseInt(e.properties.datuak.baliogabea.replace(/\./, ""), 10);
+                        e.properties.datuak.langabezia_tasa_2014 = parseFloat(e.properties.datuak.langabezia_tasa_2014.replace(/,/, "."));
 
                         if (d.emaitza === "bai") {
 
@@ -774,9 +794,11 @@
                     onMouseOut(d);
                 });
 
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "partehartzea", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "bai", "Bai (%)", aukerak.koloreak.bai);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "ez", "Ez (%)", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Bai (%)", "Biztanleria", aukerak.koloreak.bai);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Ez (%)", "Biztanleria", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "langabezia_tasa_2014", "biztanleria2014", "Langabezia tasa 2014 (%)", "Biztanleria", aukerak.koloreak.ez);
             bistaratuHerrienDatuenTaula(emaitzak);
 
         });
