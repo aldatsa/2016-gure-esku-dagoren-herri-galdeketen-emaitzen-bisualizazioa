@@ -196,6 +196,10 @@
 
             xScale.domain([0, 30]);
 
+        } else if (gakoa_x === "euskara_gaitasuna") {
+
+            xScale.domain([0, 100]);
+
         }
 
         if (gakoa_y === "biztanleria2014") {
@@ -482,6 +486,7 @@
                         e.properties.datuak.zuria = parseInt(e.properties.datuak.zuria.replace(/\./, ""), 10);
                         e.properties.datuak.baliogabea = parseInt(e.properties.datuak.baliogabea.replace(/\./, ""), 10);
                         e.properties.datuak.langabezia_tasa_2014 = parseFloat(e.properties.datuak.langabezia_tasa_2014.replace(/,/, "."));
+                        e.properties.datuak.euskara_gaitasuna = parseFloat(e.properties.datuak.euskara_gaitasuna.replace(/,/, "."));
 
                         if (d.emaitza === "bai") {
 
@@ -801,8 +806,9 @@
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Bai (%)", "Biztanleria", aukerak.koloreak.bai);
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Ez (%)", "Biztanleria", aukerak.koloreak.ez);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.ez);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
+            marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             bistaratuHerrienDatuenTaula(emaitzak);
 
         });
