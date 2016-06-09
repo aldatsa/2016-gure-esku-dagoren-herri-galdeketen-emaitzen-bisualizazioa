@@ -849,8 +849,39 @@
                 return element.partehartzea;
             });
 
+            var langabezia_tasa_2014_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.langabezia_tasa_2014;
+            });
+
+            var biztanleria_2014_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.biztanleria2014;
+            });
+
+            var bai_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.bai;
+            });
+
+            var ez_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.ez;
+            });
+
             var result = linearRegression(partehartzea_arraya, euskara_gaitasuna_arraya);
-            console.log(result);
+            console.log("Euskara gaitasuna vs partehartzea", result);
+
+            result = linearRegression(partehartzea_arraya, langabezia_tasa_2014_arraya);
+            console.log("Langabezia tasa vs partehartzea", result);
+
+            result = linearRegression(langabezia_tasa_2014_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs langabezia", result);
+
+            result = linearRegression(partehartzea_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs partehartzea", result);
+
+            result = linearRegression(partehartzea_arraya, bai_arraya);
+            console.log("Biztanleria vs baiezkoak", result);
+
+            result = linearRegression(partehartzea_arraya, ez_arraya);
+            console.log("Biztanleria vs ezezkoak", result);
         });
     });
 }());
