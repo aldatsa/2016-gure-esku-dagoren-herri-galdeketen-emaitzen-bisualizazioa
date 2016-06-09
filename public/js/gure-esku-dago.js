@@ -289,6 +289,32 @@
 
     }
 
+    // http://stackoverflow.com/questions/6195335/linear-regression-in-javascript
+    function linearRegression(y,x){
+        var lr = {};
+        var n = y.length;
+        var sum_x = 0;
+        var sum_y = 0;
+        var sum_xy = 0;
+        var sum_xx = 0;
+        var sum_yy = 0;
+
+        for (var i = 0; i < y.length; i++) {
+
+            sum_x += x[i];
+            sum_y += y[i];
+            sum_xy += (x[i]*y[i]);
+            sum_xx += (x[i]*x[i]);
+            sum_yy += (y[i]*y[i]);
+        }
+
+        lr.slope = (n * sum_xy - sum_x * sum_y) / (n*sum_xx - sum_x * sum_x);
+        lr.intercept = (sum_y - lr.slope * sum_x)/n;
+        lr.r2 = Math.pow((n*sum_xy - sum_x*sum_y)/Math.sqrt((n*sum_xx-sum_x*sum_x)*(n*sum_yy-sum_y*sum_y)),2);
+
+        return lr;
+    }
+
     function onMouseOut(d) {
 
         tip.hide();
@@ -811,6 +837,20 @@
             marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             bistaratuHerrienDatuenTaula(emaitzak);
 
+            var herrien_datuak = emaitzak.filter(function(element, index, array) {
+                return element.partehartzea;
+            });
+
+            var euskara_gaitasuna_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.euskara_gaitasuna;
+            });
+
+            var partehartzea_arraya = herrien_datuak.map(function(element, index, array) {
+                return element.partehartzea;
+            });
+
+            var result = linearRegression(partehartzea_arraya, euskara_gaitasuna_arraya);
+            console.log(result);
         });
     });
 }());
