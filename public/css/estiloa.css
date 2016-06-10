@@ -133,6 +133,7 @@ body {
     top: 690px;
     width: 250px;
     text-align: center;
+    z-index: 100;
 }
 
 #kredituak #mapa-argia-logoa {
