@@ -145,8 +145,26 @@
          */
 
         // setup x
-        var xValue = function(d) { return d[gakoa_x];}, // data -> value
-            xScale = d3.scale.linear().range([0, width]), // value -> display
+        var xValue;
+
+        if (gakoa_x === "langabezia_tasa_2016_maiatza") {
+
+            xValue = function(d) {
+
+                if (d.euskarazko_izena === "Etxarri-Aranatz" || d.euskarazko_izena === "Arrankudiaga") {
+                    return d.langabezia_tasa_2014;
+                }
+
+                return d[gakoa_x];
+            }
+        } else {
+
+            xValue = function(d) {
+                return d[gakoa_x];
+            } // data -> value
+        };
+
+        var xScale = d3.scale.linear().range([0, width]), // value -> display
             xMap = function(d) { return xScale(xValue(d));}, // data -> display
             xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
@@ -195,6 +213,10 @@
         } else if (gakoa_x === "langabezia_tasa_2014"){
 
             xScale.domain([0, 30]);
+
+        } else if (gakoa_x === "langabezia_tasa_2016_maiatza"){
+
+            xScale.domain([0, 25]);
 
         } else if (gakoa_x === "euskara_gaitasuna") {
 
@@ -512,6 +534,7 @@
                         e.properties.datuak.zuria = parseInt(e.properties.datuak.zuria.replace(/\./, ""), 10);
                         e.properties.datuak.baliogabea = parseInt(e.properties.datuak.baliogabea.replace(/\./, ""), 10);
                         e.properties.datuak.langabezia_tasa_2014 = parseFloat(e.properties.datuak.langabezia_tasa_2014.replace(/,/, "."));
+                        e.properties.datuak.langabezia_tasa_2016_maiatza = parseFloat(e.properties.datuak.langabezia_tasa_2016_maiatza.replace(/,/, "."));
                         e.properties.datuak.euskara_gaitasuna = parseFloat(e.properties.datuak.euskara_gaitasuna.replace(/,/, "."));
 
                         if (d.emaitza === "bai") {
@@ -832,7 +855,8 @@
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Bai (%)", "Biztanleria", aukerak.koloreak.bai);
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Ez (%)", "Biztanleria", aukerak.koloreak.ez);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2014-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2016_maiatza", "partehartzea", "Langabezia tasa 2016 maiatza (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             bistaratuHerrienDatuenTaula(emaitzak);
@@ -853,6 +877,14 @@
                 return element.langabezia_tasa_2014;
             });
 
+            var langabezia_tasa_2016_maiatza_arraya = herrien_datuak.map(function(element, index, array) {
+                if (element.euskarazko_izena === "Etxarri-Aranatz" || element.euskarazko_izena === "Arrankudiaga") {
+                    return element.langabezia_tasa_2014;
+                }
+                return element.langabezia_tasa_2016_maiatza;
+
+            });
+
             var biztanleria_2014_arraya = herrien_datuak.map(function(element, index, array) {
                 return element.biztanleria2014;
             });
@@ -869,7 +901,10 @@
             console.log("Euskara gaitasuna vs partehartzea", result);
 
             result = linearRegression(partehartzea_arraya, langabezia_tasa_2014_arraya);
-            console.log("Langabezia tasa vs partehartzea", result);
+            console.log("Langabezia tasa 2014 vs partehartzea", result);
+
+            result = linearRegression(partehartzea_arraya, langabezia_tasa_2016_maiatza_arraya);
+            console.log("Langabezia tasa 2016 maiatza vs partehartzea", result);
 
             result = linearRegression(langabezia_tasa_2014_arraya, biztanleria_2014_arraya);
             console.log("Biztanleria vs langabezia", result);
