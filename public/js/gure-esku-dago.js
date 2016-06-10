@@ -274,28 +274,38 @@
             .attr("cy", yMap)
             .style("fill", kolorea)
             .on("mouseover", function(d) {
-                console.log(d);
-                tooltip.transition()
-                     .duration(200)
-                     .style("opacity", 1);
-                tooltip.html("<div class='izenburua'>" + d.euskarazko_izena + "</div>" +
+
+                var tooltip_html = "<div class='izenburua'>" + d.euskarazko_izena + "</div>" +
                              "<table>" +
-                                "<tr>" +
-                                    "<td>" + tooltip_etiketa_x + "</td>" +
+                                "<tr>";
+
+                if (gakoa_x === "langabezia_tasa_2016_maiatza" && (d.euskarazko_izena === "Arrankudiaga" || d.euskarazko_izena === "Etxarri-Aranatz")) {
+                    tooltip_html = tooltip_html + "<td>Langabezia tasa 2014</td>";
+                } else {
+                    tooltip_html = tooltip_html + "<td>" + tooltip_etiketa_x + "</td>";
+                }
+
+                tooltip_html = tooltip_html +
                                     "<td>" + xValue(d) + "</td>" +
                                 "</tr>" +
                                 "<tr>" +
                                     "<td>" + tooltip_etiketa_y + "</td>" +
-                                    "<td>%" + yValue(d) + "</td>" +
+                                    "<td>" + yValue(d) + "</td>" +
                                 "</tr>" +
-      	                     "</table>")
+      	                     "</table>";
+
+                //console.log(d);
+                tooltip.transition()
+                     .duration(200)
+                     .style("opacity", 1);
+                tooltip.html(tooltip_html)
                      .style("top", (d3.event.pageY - 28) + "px");
 
                 // Arrasateren tooltip-a pantailatik ateratzen da bestela.
-                if (d.euskarazko_izena !== "Arrasate") {
-                    tooltip.style("left", (d3.event.pageX + 15) + "px");
-                } else {
+                if (d.euskarazko_izena === "Arrasate" || d.euskarazko_izena === "Arrankudiaga" || d.euskarazko_izena === "Etxarri-Aranatz" || gakoa_x === "euskara_gaitasuna") {
                     tooltip.style("left", (d3.event.pageX - 215) + "px");
+                } else {
+                    tooltip.style("left", (d3.event.pageX + 15) + "px");
                 }
             })
             .on("mouseout", function(d) {
@@ -853,8 +863,8 @@
                 });
 
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Bai (%)", "Biztanleria", aukerak.koloreak.bai);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Ez (%)", "Biztanleria", aukerak.koloreak.ez);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Biztanleria", "Bai (%)", aukerak.koloreak.bai);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Biztanleria", "Ez (%)", aukerak.koloreak.ez);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2014-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2016_maiatza", "partehartzea", "Langabezia tasa 2016 maiatza (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
