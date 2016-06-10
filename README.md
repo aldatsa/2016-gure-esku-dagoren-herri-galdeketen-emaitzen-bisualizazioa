@@ -8,7 +8,7 @@ Bisualizazio hau software librea da eta iturburu-kodeak [GNU General Public Lice
 
 Mapa marrazteko erabilitako topoJSON fitxategiak [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) lizentzia dauka eta [Gaindegia](http://www.gaindegia.eus/)ren [Euskalgeo](http://euskalgeo.net/) webguneko datu espazialetan oinarrituta dago.
 
-Emaitzen CSV fitxategiak ere [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) lizentzia dauka eta [Gaindegia](http://www.gaindegia.eus/)ren [datuak.net](http://datuak.net/) webguneko biztanleria datuetan oinarrituta dago.
+Emaitzen CSV fitxategiak ere [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) lizentzia dauka eta [Gaindegia](http://www.gaindegia.eus/)ren [datuak.net](http://datuak.net/) webguneko biztanleria datuetan oinarrituta dago. 2014ko langabezia datuak ere [datuak.net](http://datuak.net/) webgunekoak dira. 2016ko maiatzeko langabeziaren datuak berriz [Open Data Euskadi](http://opendata.euskadi.eus/w79-contdata/es/contenidos/estadistica/paro_resumen_mensual_2016/es_def/adjuntos/05-Mayo/paromensual.shtml)koak dira. Euskara gaitasunaren datuak http://46.226.108.156/UEMA/atlas.html webgunetik hartuak dira.
 
 <a rel="license" href="http://www.gnu.org/licenses/gpl.html"><img alt="GNU General Public License version 3" style="border-width:0" src="http://www.gnu.org/graphics/gplv3-127x51.png" /></a>
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
