@@ -867,7 +867,7 @@
             marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Biztanleria", "Ez (%)", aukerak.koloreak.ez);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2014-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2016_maiatza", "partehartzea", "Langabezia tasa 2016 maiatza (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
+            //marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
             marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
             bistaratuHerrienDatuenTaula(emaitzak);
 
