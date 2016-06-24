@@ -131,7 +131,7 @@
         tbody.innerHTML = katea;
     }
 
-    function marraztuBiztanleriaVsGrafikoa(hautatzailea, data, gakoa_x, gakoa_y, tooltip_etiketa_x, tooltip_etiketa_y, kolorea) {
+    function marraztuBiztanleriaVsGrafikoa(hautatzailea, data, gakoa_x, gakoa_y, tooltip_etiketa_x, tooltip_etiketa_y, kolorea, erregresioa) {
 
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
             width = 685 - margin.left - margin.right,
@@ -313,6 +313,17 @@
                      .duration(500)
                      .style("opacity", 0);
             });
+
+        var trendline = svg.selectAll(".trendline")
+            .data([0]).enter()
+			.append("line")
+			.attr("class", "trendline")
+			.attr("x1", function(d) { return xScale(0); })
+			.attr("y1", function(d) { return yScale(erregresioa.intercept); })
+			.attr("x2", function(d) { return xScale(d3.max(datuak, xValue)); })
+			.attr("y2", function(d) { return yScale(d3.max(datuak, xValue) * erregresioa.slope + erregresioa.intercept); })
+			.attr("stroke", "black")
+			.attr("stroke-width", 1);
     }
 
     function kalkulatuEhunekoa(balioa, guztira, hamartarrak) {
@@ -862,15 +873,6 @@
                     onMouseOut(d);
                 });
 
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Biztanleria", "Bai (%)", aukerak.koloreak.bai);
-            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Biztanleria", "Ez (%)", aukerak.koloreak.ez);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2014-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2016_maiatza", "partehartzea", "Langabezia tasa 2016 maiatza (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            //marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria);
-            marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria);
-            bistaratuHerrienDatuenTaula(emaitzak);
-
             var herrien_datuak = emaitzak.filter(function(element, index, array) {
                 return element.partehartzea;
             });
@@ -900,33 +902,42 @@
             });
 
             var bai_arraya = herrien_datuak.map(function(element, index, array) {
-                return element.bai;
+                return 100 * element.bai / (element.bai + element.ez + element.zuria + element.baliogabea);
             });
 
             var ez_arraya = herrien_datuak.map(function(element, index, array) {
-                return element.ez;
+                return 100 * element.ez / (element.bai + element.ez + element.zuria + element.baliogabea);
             });
 
-            var result = linearRegression(partehartzea_arraya, euskara_gaitasuna_arraya);
-            console.log("Euskara gaitasuna vs partehartzea", result);
+            var erregresioa_partehartzea_euskara = linearRegression(partehartzea_arraya, euskara_gaitasuna_arraya);
+            console.log("Euskara gaitasuna vs partehartzea", erregresioa_partehartzea_euskara);
 
-            result = linearRegression(partehartzea_arraya, langabezia_tasa_2014_arraya);
-            console.log("Langabezia tasa 2014 vs partehartzea", result);
+            var erregresioa_partehartzea_langabezia2014 = linearRegression(partehartzea_arraya, langabezia_tasa_2014_arraya);
+            console.log("Langabezia tasa 2014 vs partehartzea", erregresioa_partehartzea_langabezia2014);
 
-            result = linearRegression(partehartzea_arraya, langabezia_tasa_2016_maiatza_arraya);
-            console.log("Langabezia tasa 2016 maiatza vs partehartzea", result);
+            var erregresioa_partehartzea_langabezia2016 = linearRegression(partehartzea_arraya, langabezia_tasa_2016_maiatza_arraya);
+            console.log("Langabezia tasa 2016 maiatza vs partehartzea", erregresioa_partehartzea_langabezia2016);
 
-            result = linearRegression(langabezia_tasa_2014_arraya, biztanleria_2014_arraya);
-            console.log("Biztanleria vs langabezia", result);
+            var erregresioa_langabezia_biztanleria = linearRegression(langabezia_tasa_2014_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs langabezia", erregresioa_langabezia_biztanleria);
 
-            result = linearRegression(partehartzea_arraya, biztanleria_2014_arraya);
-            console.log("Biztanleria vs partehartzea", result);
+            var erregresioa_partehartzea_biztanleria = linearRegression(partehartzea_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs partehartzea", erregresioa_partehartzea_biztanleria);
 
-            result = linearRegression(partehartzea_arraya, bai_arraya);
-            console.log("Biztanleria vs baiezkoak", result);
+            var erregresioa_biztanleria_bai = linearRegression(bai_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs baiezkoak", erregresioa_biztanleria_bai);
 
-            result = linearRegression(partehartzea_arraya, ez_arraya);
-            console.log("Biztanleria vs ezezkoak", result);
+            var erregresioa_biztanleria_ez = linearRegression(ez_arraya, biztanleria_2014_arraya);
+            console.log("Biztanleria vs ezezkoak", erregresioa_biztanleria_ez);
+
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-partehartzea-grafikoa", emaitzak, "biztanleria2014", "partehartzea", "Biztanleria", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria, erregresioa_partehartzea_biztanleria);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-bai-grafikoa", emaitzak, "biztanleria2014", "bai", "Biztanleria", "Bai (%)", aukerak.koloreak.bai, erregresioa_biztanleria_bai);
+            marraztuBiztanleriaVsGrafikoa("#biztanleria-vs-ez-grafikoa", emaitzak, "biztanleria2014", "ez", "Biztanleria", "Ez (%)", aukerak.koloreak.ez, erregresioa_biztanleria_ez);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2014-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2014", "partehartzea", "Langabezia tasa 2014 (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria, erregresioa_partehartzea_langabezia2014);
+            marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa", emaitzak, "langabezia_tasa_2016_maiatza", "partehartzea", "Langabezia tasa 2016 maiatza (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria, erregresioa_partehartzea_langabezia2016);
+            //marraztuBiztanleriaVsGrafikoa("#langabezia-tasa-vs-biztanleria-grafikoa", emaitzak, "biztanleria2014", "langabezia_tasa_2014", "Biztanleria", "Langabezia tasa 2014 (%)", aukerak.koloreak.galdeketa_iragarria, erregresioa_langabezia_biztanleria);
+            marraztuBiztanleriaVsGrafikoa("#euskara-gaitasuna-vs-partehartzea-grafikoa", emaitzak, "euskara_gaitasuna", "partehartzea", "Euskara gaitasuna (%)", "Partehartzea (%)", aukerak.koloreak.galdeketa_iragarria, erregresioa_partehartzea_euskara);
+            bistaratuHerrienDatuenTaula(emaitzak);
         });
     });
 }());
