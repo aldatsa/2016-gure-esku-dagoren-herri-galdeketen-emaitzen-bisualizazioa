@@ -1,6 +1,8 @@
 # ARGIA.eus - Gure Esku Dagoren herri galdeketen emaitzen bisualizazioa
 
-http://www.argia.eus/albistea/galdeketen-emaitzak-herriz-herri
+2016-06-05 http://www.argia.eus/albistea/galdeketen-emaitzak-herriz-herri
+
+2017-03-20 http://www.argia.eus/albistea/bozkatzera-deitutakoen-2483k-eman-du-botoa-erabakitzeko-eskubidearen-aldeko-galdeketetan
 
 ## Lizentzia
 
