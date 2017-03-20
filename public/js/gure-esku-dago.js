@@ -416,6 +416,14 @@
         tip.show(d);
     }
 
+    var emaitzakCSV = "csv/udalerriak.csv";
+
+    if (document.getElementById("gure-esku-dago-js") && document.getElementById("gure-esku-dago-js").getAttribute("data-fitxategia")) {
+
+        emaitzakCSV = document.getElementById("gure-esku-dago-js").getAttribute("data-fitxategia");
+
+    }
+
     var eskala = eskalatu();
 
     var aukerak = {
@@ -441,7 +449,7 @@
                 eskala: 13500
             }
         },
-        emaitzakCSV: "csv/udalerriak.csv",
+        emaitzakCSV: emaitzakCSV,
         topoJSON: "topoJSON/udalerriak.json",
         json_izena: "udalerriak",
         koloreak: {

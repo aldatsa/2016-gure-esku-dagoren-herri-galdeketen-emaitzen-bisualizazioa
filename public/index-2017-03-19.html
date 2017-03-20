@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>2017 - Gure Esku Dagoren herri galdeketen emaitzak </title>
+		<link href="css/estiloa.css" rel="stylesheet">
+		<link href="css/d3-tip.css" rel="stylesheet">
+		<link href="css/c3/c3.min.css" rel="stylesheet">
+	</head>
+
+    <body>
+		<div id="kontainerra">
+			<div class="izenburua">Gure Esku Dagoren herri galdeketen emaitzak</div>
+			<div class="azalpena"></div>
+			<div id="grafikoak">
+				<div id="biztanleria-grafikoa"></div>
+				<div id="biztanleria-grafikoa-etiketa">Botoak</div>
+				<div id="herriak-grafikoa"></div>
+				<div id="herriak-grafikoa-etiketa">Herriak</div>
+			</div>
+            <div id="kredituak">
+				<a target="_blank" href="http://www.argia.eus"><img id="mapa-argia-logoa" src="img/argia-gardena.png"></a>
+				<a target="_blank" href="http://www.iametza.eus"><img id="mapa-iametza-logoa" src="img/iametza.png"></a>
+				<div>
+				  <strong>Asier Iturralde Sarasola</strong>&nbsp;<a target="_blank" href="http://www.twitter.com/aldatsa">@aldatsa</a>
+				</div>
+				<div>
+					Datu geografikoak: <a target="_blank" href="http://www.euskalgeo.net/">Euskalgeo</a>n oinarrituta
+				</div>
+				<div>
+					Biztanleria datuak: <a target="_blank" href="http://www.datuak.net/">datuak.net</a> (2016)
+				</div>
+				<div><a target="_blank" href="https://github.com/aldatsa/2016-gure-esku-dagoren-herri-galdeketen-emaitzen-bisualizazioa/">Iturburu kodea eta datuak (GPLv3/CC-BY-SA)</a></div>
+			</div>
+			<div class="azalpena">Pasa sagua herrien gainetik xehetasunak bistaratzeko.</div>
+            <div id="mapa">
+                <svg></svg>
+				<table class="legenda">
+					<tr>
+						<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+						<td>Alde</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+						<td>Aurka</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
+						<td>Galdeketa iragarrita</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+						<td>Erabakitzeke</td>
+					</tr>
+				</table>
+            </div>
+
+			<div id="sinbolo-proportzionalen-mapa">
+                <svg></svg>
+				<table class="sinbolo-proportzionalen-maparen-legenda">
+					<tr>
+						<td class="kolorea" bgcolor="#a6ce39">&nbsp;</td>
+						<td>Alde</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea" bgcolor="#c4161c">&nbsp;</td>
+						<td>Aurka</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea galdeketa-iragarria" bgcolor="#179A92">&nbsp;</td>
+						<td>Galdeketa iragarrita</td>
+					</tr>
+					<tr>
+	                    <td class="kolorea erabakitzeke" bgcolor="#ffffff">&nbsp;</td>
+						<td>Erabakitzeke</td>
+					</tr>
+				</table>
+				<div id="zirkuluen-legenda">
+					<img src="img/zirkuluak.png">
+					<div id="zirkuluen-oharra">Zirkuluen diametroak udalerrien biztanleriarekiko proportzionalak dira</div>
+				</div>
+            </div>
+
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Ohar garrantzitsua</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena">Hurrengo grafikoetan emaitzak aztertzen saiatu naiz baina kontutan izan behar da korrelazio estatistikoa ez dela nahikoa kausalitatea ondorioztatzeko. A eta Bren arteko korrelazioak ez du esan nahi Ak B eragiten duenik, litekeena da C aldagai bat ezkutuan egotea, A eta B azaltzeko balio duena.</div>
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Biztanleria vs partehartzea</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena">Hainbatek aipatu bezala herri txikietan partehartzea askoz handiagoa izan da herri handietan baino. Grafikoan garbi ikusten da joera. Hala ere, badira salbuespenak, adibidez, Olaberrian partehartzea antzerako herrietan baino nabarmen txikiagoa izan da.</div>
+			<div class="biztanleria-vs-grafikoa" id="biztanleria-vs-partehartzea-grafikoa"></div>
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Biztanleria vs baiezkoen ehunekoa</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena">Baiezko botoen portzentaia altua da herri guztietan eta ez dago desberdintasun nabarmenik herri txiki eta handien artean.</div>
+			<div class="biztanleria-vs-grafikoa" id="biztanleria-vs-bai-grafikoa"></div>
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Biztanleria vs ezezkoen ehunekoa</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena">Ezezko botoen portzentaia baxua da herri guztietan eta ez dago desberdintasun nabarmenik herri txiki eta handien artean.</div>
+			<div class="biztanleria-vs-grafikoa" id="biztanleria-vs-ez-grafikoa"></div>
+			<!--<div class="biztanleria-vs-grafikoa" id="langabezia-tasa-2014-vs-partehartzea-grafikoa"></div>-->
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Langabezia tasa vs partehartzea</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena"><a target="_blank" href="https://borrokagaraia.wordpress.com/2016/06/07/sobre-el-resultado-de-las-consultas-soberanistas/">Borroka garaia da blogeko artikulu batean</a> langabezia tasa aipatzen da partehartzean eragina izan duten faktoreen artean. Grafikoan ikusten denez langabezia tasa handitu ahala partehartzea txikiagotzeko joera dago. Eskuinaldean nabarmentzen diren 2 herriak Arrankudiaga eta Etxarri-Aranatz dira, kasu horietan 2014ko datuak erabili ditugu, urte horretan egin baitziren galdeketak.</div>
+			<div class="biztanleria-vs-grafikoa" id="langabezia-tasa-2016-maiatza-vs-partehartzea-grafikoa"></div>
+			<!--<div class="biztanleria-vs-grafikoa" id="langabezia-tasa-vs-biztanleria-grafikoa"></div>-->
+			<h2 class="biztanleria-vs-grafikoa-etiketa">Euskara gaitasuna vs partehartzea</h2>
+			<div class="biztanleria-vs-grafikoa-azalpena">Aztertutako erlazio guztietatik korrelazio handiena duena euskara gaitasunaren eta partehartzearen artekoa da (r&sup2; = 0.67). Herria gero eta euskaldunagoa partehartzea orduan eta handiagoa da. Joera orokorraren salbuespena Arrankudiaga da, bertan partehartzea antzeko euskara gaitasuna duten herrietan baino nabarmen handiagoa izan baitzen.</div>
+			<div class="biztanleria-vs-grafikoa" id="euskara-gaitasuna-vs-partehartzea-grafikoa"></div>
+			<h2 id="emaitzak-herriz-herri-etiketa">Emaitzak herriz herri</h2>
+			<div class="emaitzak-herriz-herri">
+				<table>
+					<thead>
+						<tr>
+							<th>Udalerria</th>
+							<th>Hautesleak</th>
+							<th>Botoak</th>
+							<th>Partehartzea</th>
+							<th>Bai</th>
+							<th>%</th>
+							<th>Ez</th>
+							<th>%</th>
+							<th>Zuriak</th>
+							<th>%</th>
+							<th>Baliogabeak</th>
+							<th>%</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+        </div>
+        <script type="text/javascript" src="js/d3/d3.min.js"></script>
+		<script type="text/javascript" src="js/topojson/topojson.js"></script>
+		<!--d3-tip-i aldaketa bat egin diot eskalatzean funtziona dezan. Nahiko txukun dabil baina eskalatu ondoren kokapen bertikala ez da guztiz zehatza.-->
+		<script type="text/javascript" src="js/d3-tip-scale.js"></script>
+		<script type="text/javascript" src="js/c3/c3.min.js"></script>
+        <script id="gure-esku-dago-js" data-fitxategia="csv/udalerriak-2017-03-19.csv" type="text/javascript" src="js/gure-esku-dago.js"></script>
+		<script type="text/javascript" src="js/analytics.js"></script>
+    </body>
+</html>
